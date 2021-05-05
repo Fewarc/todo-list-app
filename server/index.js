@@ -11,7 +11,7 @@ app.use(bodyParser.json({ extend: true }));         // using body-parser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());    // using cross-origin
 
-app.use('/lists', listRoutes);
+app.use('/todo', listRoutes);
 
 // personal mongoDB URL
 const CONNECTION_URL = 'mongodb+srv://todo-PiotrBerezka:todo-PiotrBerezka123@cluster0.rsevg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
