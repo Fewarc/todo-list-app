@@ -22,7 +22,7 @@ export const getLists = async (req, res) => {
 
 export const createList = async (req, res) => {
     const list = req.body;
-
+    console.log(list);
     const newList = ListMessage(list);
     
     try {

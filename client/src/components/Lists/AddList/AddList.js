@@ -1,4 +1,4 @@
-import { Button, Card, CardActions, CardContent, TextField, TextareaAutosize } from '@material-ui/core';
+import { Button, Card, CardActions, CardContent, TextField } from '@material-ui/core';
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { createList } from '../../../actions/lists.js'

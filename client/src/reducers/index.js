@@ -1,18 +1,18 @@
 import { combineReducers } from 'redux';
-import list from './list.js';
+import lists from './list.js';
 
 /**
  * combining is needed when there is more than one reducer
  */
 
 export default combineReducers({
-    list: list
+    lists: lists
 });
 
 /**
  * possible ES6 syntax:
  * 
  * export default combineReducers({
-    list
+    lists
 });
 */
