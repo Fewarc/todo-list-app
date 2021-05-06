@@ -8,6 +8,7 @@ import mongoose from 'mongoose';
 const listSchema = mongoose.Schema({
     creator: String,
     title: String,
+    description: String,
     notes: [{
         title: String,
         description: String,

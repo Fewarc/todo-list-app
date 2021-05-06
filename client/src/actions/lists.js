@@ -21,7 +21,7 @@ export const getLists = () => async(dispatch) => {
 /**
  * @param {list} list - pass a list you want to create
  */
-export const craeteList = (list) => async(dispatch) => {
+export const createList = (list) => async(dispatch) => {
     try {
         const { data } = await api.createList();
 

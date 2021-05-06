@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import reducers from './reducers';
 import App from './App.js';
+import spikes from './images/spikes.png'
 
 /**
  * store is needed to hold global variables for redux to use
