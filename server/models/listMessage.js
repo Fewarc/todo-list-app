@@ -9,7 +9,8 @@ const listSchema = mongoose.Schema({
     creator: String,
     title: String,
     notes: [{
-        type: String,
+        title: String,
+        description: String,
         createdAt: {
             type: Date,
             default: new Date()
@@ -22,9 +23,10 @@ const listSchema = mongoose.Schema({
 });
 
 /**
- * modeling a schema will ad it to a collection (in this case called listmessages)
+ * modeling a schema will add it to a collection (in this case called listmessages)
  * if the collection doesn't exist it will create it
  */
+
 const listMessage = mongoose.model('ListMessage', listSchema); 
 
 export default listMessage;
