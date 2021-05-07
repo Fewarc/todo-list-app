@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import lists from './list.js';
-import logInUser from './LogInUser.js';
+import logInUser from './logInUser.js';
 
 /**
  * combining is needed when there is more than one reducer
