@@ -7,17 +7,21 @@ export default makeStyles((theme) => ({
         flexDirection: "column",
     },
     cBlock: {
-        display: "block"
+        display: "block",
     },
     center: {
         display: "flex",
         justifyContent: 'center',
     },
     line: {
-        width: "85%",
-        borderTop: "0px"
+        width: "100%",
+        borderTop: "0px",
     },
     text: {
         width: "100%",
-    }
+    },
+    cardInput: {
+        width: "80%",
+        margin: "auto"
+    },
   }));

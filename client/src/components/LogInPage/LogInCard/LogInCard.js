@@ -31,16 +31,16 @@ const LogInCard = () => {
             </CardContent>
             <hr className={classes.line}></hr>
             {toggle ? ( <Log /> ) : ( <Register /> )}
-            <CardContent className={classes.bottomDiv}>
+            <div className={classes.bottomDiv}>
                 {toggle ? (
                     <Typography className={classes.bottomText} variant="" color="primary" >
                 Don't have an account? - <a className={classes.anchor} onClick={(e) => toggleState(e)}>Register now!</a> </Typography>
                 ) : (
                     <Typography className={classes.bottomText} variant="" color="primary" >
-                already have an account? - <a className={classes.anchor} onClick={(e) => toggleState(e)}>Log In!</a> </Typography>
+                Already have an account? - <a className={classes.anchor} onClick={(e) => toggleState(e)}>Log In!</a> </Typography>
                 )}
                 <hr className={classes.line}></hr>
-            </CardContent>
+            </div>
         </Card>
     );
 }

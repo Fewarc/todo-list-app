@@ -16,12 +16,15 @@ export default makeStyles((theme) => ({
     bottomText: {
         fontFamily: "Quicksand, sans-serif",
         fontSize: "calc(1.5vh + 0.5vw)",
-        textAlign: "center"
+        textAlign: "center",
+        userSelect: "none",
     },
     bottomDiv: {
         textAlign: "center", 
         margin: "auto",
         position: "absolute",
-        bottom: "0"
+        bottom: "0",
+        right: "0",
+        left: "0"
     }
   }));

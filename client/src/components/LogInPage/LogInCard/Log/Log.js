@@ -9,17 +9,19 @@ const Log = () => {
     return (
         <div className={classes.cardInput}>
             <form>
-                <CardContent>
-                    <TextField 
-                        className={classes.text}  
-                        spellCheck={false} 
-                        name="username" 
-                        variant="outlined" 
-                        label="username" 
-                        >
-                    </TextField>
-                </CardContent>
-                <CardContent>
+                <CardContent alignItems="stretch" style={{display: "inline"}}>
+                <Grid container spacing={2} style={{display: "flex"}}>
+                    <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
+                        <TextField 
+                            className={classes.text}  
+                            spellCheck={false} 
+                            name="username" 
+                            variant="outlined" 
+                            label="username" 
+                            >
+                        </TextField>
+                    </Grid>
+                    <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
                     <TextField 
                         className={classes.text} 
                         type="password"
@@ -29,12 +31,11 @@ const Log = () => {
                         label="password" 
                         >
                     </TextField>
+                    </Grid>
+                </Grid>
                 </CardContent>
-
-                <hr className={classes.line}></hr>
-
                 <CardContent className={classes.center}>
-                    <Button variant="outlined" color="primary" type="submit">Log In</Button>
+                    <Button variant="outlined" color="primary" onClick={(e) => e.preventDefault}>Log In</Button>
                 </CardContent>
                 
             </form>
