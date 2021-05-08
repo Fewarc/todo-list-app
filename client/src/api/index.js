@@ -1,8 +1,10 @@
 import axios from 'axios';
 
 const listUrl = 'http://localhost:5000/todo';
-const userUrl = 'http://localhost:5000/logIn';
+const loginUrl = 'http://localhost:5000/users/login';
+const registerUrl = 'http://localhost:5000/users/register';
 
 export const fetchLists = () => axios.get(listUrl);
 export const createList = (newList) => axios.post(listUrl, newList); 
-export const getUser = (user) => axios.post(userUrl, user);  // todo
+export const getUser = (user) => axios.post(loginUrl, user); 
+export const createUser = (user) => axios.post(registerUrl, user);

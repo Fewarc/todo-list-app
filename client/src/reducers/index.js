@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import lists from './list.js';
-import logInUser from './logInUser.js';
+import user from './user.js';
+import isLoggedIn from './isLoggedIn.js';
 
 /**
  * combining is needed when there is more than one reducer
@@ -8,7 +9,8 @@ import logInUser from './logInUser.js';
 
 export default combineReducers({
     lists: lists,
-    logInUser: logInUser
+    isLoggedIn: isLoggedIn,
+    user: user
 });
 
 /**
@@ -17,5 +19,6 @@ export default combineReducers({
  * export default combineReducers({
     lists,
     isLoggedIn
+    user
 });
 */

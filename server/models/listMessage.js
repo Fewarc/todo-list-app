@@ -10,12 +10,11 @@ const listSchema = mongoose.Schema({
     title: String,
     description: String,
     notes: [{
-        title: String,
-        description: String,
-        createdAt: {
-            type: Date,
-            default: new Date()
-        }
+        done: {
+            type: Boolean,
+            default: false
+        },
+        note: String,
     }],
     createdAt: {
         type: Date,

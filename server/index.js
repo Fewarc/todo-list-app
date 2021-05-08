@@ -4,6 +4,7 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 
 import listRoutes from './routes/lists.js';
+import userRouter from './routes/users.js';
 
 const app = express(); // creating a express app
 
@@ -12,6 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());    // using cross-origin
 
 app.use('/todo', listRoutes);
+app.use('/users', userRouter);
 
 // personal mongoDB URL
 const CONNECTION_URL = 'mongodb+srv://todo-PiotrBerezka:todo-PiotrBerezka123@cluster0.rsevg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
