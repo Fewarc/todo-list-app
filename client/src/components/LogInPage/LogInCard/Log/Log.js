@@ -1,10 +1,29 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { CardContent, Grid, TextField, Button, Typography } from '@material-ui/core';
 import useStyles from './styles.js';
-
+import { getUser } from '../../../../actions/logIn.js';
 
 const Log = () => {
     const classes = useStyles();
+    const dispatch = useDispatch();
+    const [user, setUser] = useState({
+        username: '',
+        password: ''
+    });
+
+    const submitLogIn = (e) => {
+        e.preventDefault();
+        dispatch(getUser(user));
+        clearUser();
+    }
+
+    const clearUser = () => {
+        setUser({
+        username: '',
+        password: ''}
+        )
+    }
 
     return (
         <div className={classes.cardInput}>
@@ -18,6 +37,8 @@ const Log = () => {
                             name="username" 
                             variant="outlined" 
                             label="username" 
+                            value={user.username}
+                            onChange={(e) => setUser({ ...user, username: e.target.value })}
                             >
                         </TextField>
                     </Grid>
@@ -29,13 +50,15 @@ const Log = () => {
                         name="password" 
                         variant="outlined" 
                         label="password" 
+                        value={user.password}
+                        onChange={(e) => setUser({ ...user, password: e.target.value })}
                         >
                     </TextField>
                     </Grid>
                 </Grid>
                 </CardContent>
                 <CardContent className={classes.center}>
-                    <Button variant="outlined" color="primary" onClick={(e) => e.preventDefault}>Log In</Button>
+                    <Button variant="outlined" color="primary" onClick={(e) => submitLogIn(e)}>Log In</Button>
                 </CardContent>
                 
             </form>

@@ -3,9 +3,12 @@ import * as api from '../api';
 export const getUser = (user) => async(dispatch) => {
     try {
         const { data } = await api.getUser(user);
-        
-        dispatch({ type: 'LOG_IN', payload: data }); 
-        
+           
+        if(data === null){
+            dispatch({ type: 'ERROR', payload: data });
+        }else {
+            dispatch({ type: 'LOG_IN', payload: data });
+        }
     } catch (error) {
         console.log(error.messsage);
     }

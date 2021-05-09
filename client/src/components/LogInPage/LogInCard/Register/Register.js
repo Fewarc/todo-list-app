@@ -1,10 +1,32 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Card, Grid, TextField, CardContent, Button } from '@material-ui/core';
 import useStyles from './styles.js';
+import { createUser } from '../../../../actions/logIn.js';
 
 const Register = () => {
     const classes = useStyles();
-    let toggle = false; 
+    const dispatch = useDispatch();
+    const [user, setUser] = useState({
+        username: '',
+        password: '',
+        email: ''
+    });
+
+    const submitSignUp = (e) => {
+        e.preventDefault();
+
+        dispatch(createUser(user));
+        clearUser();
+    } 
+
+    const clearUser = () => {
+        setUser({
+        username: '',
+        password: '',
+        email: ''}
+        )
+    }
 
     return (
         <div className={classes.cardInput}>
@@ -18,6 +40,8 @@ const Register = () => {
                             name="username" 
                             variant="outlined" 
                             label="username" 
+                            value={user.username}
+                            onChange={(e) => setUser({ ...user, username: e.target.value })}
                             >
                             </TextField>
                         </Grid>
@@ -29,6 +53,8 @@ const Register = () => {
                             name="password" 
                             variant="outlined" 
                             label="password" 
+                            value={user.password}
+                            onChange={(e) => setUser({ ...user, password: e.target.value })}
                             >
                             </TextField>
                         </Grid>
@@ -39,13 +65,15 @@ const Register = () => {
                             name="email" 
                             variant="outlined" 
                             label="email" 
+                            value={user.email}
+                            onChange={(e) => setUser({ ...user, email: e.target.value })}
                             >
                             </TextField>
                         </Grid>
                     </Grid>
                 </CardContent>
                 <CardContent className={classes.center}>
-                    <Button variant="outlined" color="primary" onClick={(e) => e.preventDefault}>Sign up</Button>
+                    <Button variant="outlined" color="primary" onClick={(e) => submitSignUp(e)}>Sign up</Button>
                 </CardContent>
             </form>
         </div>
