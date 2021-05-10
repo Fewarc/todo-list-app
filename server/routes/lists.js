@@ -5,7 +5,7 @@ import { getLists, createList } from '../controllers/lists.js'; // get and post 
 const listsRouter = express.Router(); // crate router to use in index.js
 
 // post and get fucntions
-listsRouter.get('/', getLists);
+listsRouter.get('/:username', getLists);
 listsRouter.post('/', createList);
 
 export default listsRouter;

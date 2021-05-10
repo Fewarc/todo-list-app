@@ -1,8 +1,7 @@
 export default (isLoggedIn = false, action) => {
     switch (action.type) {
         case 'LOG_IN':   // logging in
-            console.log(action.payload);
-            return false;
+            return true;
 
         case 'LOG_OUT':  // logging out  
             return false; 

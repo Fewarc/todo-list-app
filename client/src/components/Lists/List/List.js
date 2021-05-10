@@ -1,4 +1,4 @@
-import { Button, Card, CardActions, CardContent, TextField, Typography } from '@material-ui/core';
+import { Button, Card, CardActions, CardContent, TextField, Typography, Fade } from '@material-ui/core';
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { createList } from '../../../actions/lists.js'
@@ -9,18 +9,21 @@ const List = ({ list }) => {
     const classes = useStyles();
 
     return ( 
-        <Card className={classes.card} variant="outlined">
-                <CardContent className={classes.center} >
-                    <Typography>{list.title}</Typography>
-                </CardContent>
-                <hr className={classes.line}></hr>
-                <CardContent className={classes.center}>
-                    <Typography>{list.description}</Typography>
-                </CardContent>
-                {/* <CardContent className={classes.center}>
-                    <Button variant="outlined" color="primary" type="submit">Create a new list</Button>
-                </CardContent> */}
-        </Card>
+        <Fade in timeout={1000}>
+            <Card className={classes.card} variant="outlined">
+                    <CardContent className={classes.center} >
+                        <Typography style={ {fontFamily: "'Lobster', cursive", fontSize: "1.5rem", color: "#3F51B5"} }>{list.title}</Typography>
+                    </CardContent>
+                    <hr className={classes.line}></hr>
+                    <CardContent>
+                        <Typography>{list.description}</Typography>
+                    </CardContent>
+                    <CardContent className={classes.center}>
+                        <Button style={{margin: "0.5rem"}} variant="outlined" color="primary" onClick={(e) => e.preventDefault()}>Check</Button>
+                        <Button style={{margin: "0.5rem"}} variant="outlined" color="primary" onClick={(e) => e.preventDefault()}>Delete</Button>
+                    </CardContent> 
+            </Card>
+        </Fade>
     );
 }
 

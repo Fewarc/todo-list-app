@@ -9,14 +9,24 @@ import ListMessage from '../models/listMessage.js';
  */
 
 export const getLists = async (req, res) => {
+    const user = req.params.username;
+    console.log(req.params.username);
     try {
-        const listMessages = await ListMessage.find();
+        const listMessages = await ListMessage.find({creator: user}, (err, results) => {
+            if (err) {
+                res.status(404).json({message: err.message});
+                console.log(err.message);
+            }
 
-        console.log(listMessages);
+            if(results) {
+                res.status(200).json(results);
+                console.log(results);
+            }
+        });
 
-        res.status(200).json(listMessages); // send status 200 - success and all of the records
+        // res.status(200).json(listMessages);
     } catch (error) {
-        res.error(404).json({ message: error.message });
+        console.log(error.message);
     }
 }
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { AppBar, Toolbar, Typography, Paper, Slide, useScrollTrigger } from '@material-ui/core';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 function HideOnScroll(props) {
     const { children, window } = props;
@@ -17,6 +17,7 @@ function HideOnScroll(props) {
   }
 
 const Navbar = (props) => {
+  const loggedUser = useSelector( (state) => state.user );
     return (
     <div>
         <HideOnScroll {...props}>
@@ -28,7 +29,7 @@ const Navbar = (props) => {
                         flexGrow: "1", 
                         alignItems: "center", 
                         fontFamily: "Quicksand, sans-serif",
-                        fontSize: "4vw"}}>//todo lists</Typography>
+                        fontSize: "4vw"}}>{loggedUser[loggedUser.length] === 's' ? loggedUser + '\' ' : loggedUser + '\'s '}//todo lists</Typography>
                 </Toolbar>
             </AppBar>
         </HideOnScroll>

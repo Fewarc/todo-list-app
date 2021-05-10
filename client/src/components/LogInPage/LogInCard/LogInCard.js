@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, Grid, TextField, AppBar, Toolbar, Typography, CardContent } from '@material-ui/core';
+import { Card, Grid, TextField, AppBar, Toolbar, Typography, CardContent, Fade } from '@material-ui/core';
 import useStyles from './styles.js';
 
 import Log from './Log/Log.js';
@@ -31,16 +31,16 @@ const LogInCard = () => {
             </CardContent>
             <hr className={classes.line}></hr>
             {toggle ? ( <Log /> ) : ( <Register /> )}
-            <div className={classes.bottomDiv}>
-                {toggle ? (
-                    <Typography className={classes.bottomText} variant="" color="primary" >
-                Don't have an account? - <a className={classes.anchor} onClick={(e) => toggleState(e)}>Register now!</a> </Typography>
-                ) : (
-                    <Typography className={classes.bottomText} variant="" color="primary" >
-                Already have an account? - <a className={classes.anchor} onClick={(e) => toggleState(e)}>Log In!</a> </Typography>
-                )}
-                <hr className={classes.line}></hr>
-            </div>
+                <div className={classes.bottomDiv}>
+                    {toggle ? (
+                        <Typography className={classes.bottomText} variant="" color="primary" >
+                    Don't have an account? - <a className={classes.anchor} onClick={(e) => toggleState(e)}>Register now!</a> </Typography>
+                    ) : (
+                        <Typography className={classes.bottomText} variant="" color="primary" >
+                    Already have an account? - <a className={classes.anchor} onClick={(e) => toggleState(e)}>Log In!</a> </Typography>
+                    )}
+                    <hr className={classes.line}></hr>
+                </div>           
         </Card>
     );
 }

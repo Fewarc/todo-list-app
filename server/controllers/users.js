@@ -11,11 +11,9 @@ export const getUser = async (req, res) => {
             } 
 
             if (results) {
-                res.status(200).json({ username: user.username, message: `User ${user.username} logged in succesfully`});
-                console.log(results);
+                res.status(200).json({ username: user.username, success: true});
             }else {
-                res.status(200).json({ username: user.username, message: `User ${user.username} couldn't be found`});
-                console.log(results);
+                res.status(200).json({ username: user.username, success: false});
             }
         });
 
