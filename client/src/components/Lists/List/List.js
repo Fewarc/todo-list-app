@@ -1,5 +1,6 @@
-import { Button, Card, Dialog, DialogTitle, CardContent, ListItem, ListItemAvatar, Typography, Fade, Avatar, ListItemText } from '@material-ui/core';
+import { Button, Card, Modal, CardContent, Typography, Fade } from '@material-ui/core';
 import React, { useState } from 'react';
+import Notes from '../../Notes/Notes.js';
 import { useSelector, useDispatch } from 'react-redux';
 import { createList } from '../../../actions/lists.js'
 
@@ -8,6 +9,20 @@ import useStyles from './styles';
 
 const List = ({ list }) => {
     const classes = useStyles();                // TODO : add popovers / popups
+
+    const [open, setOpen] = useState(false);
+
+    const handleOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    const notes = (
+            <Notes list = {list}/>
+    );
 
     return ( 
         <Fade in timeout={1000}>
@@ -20,7 +35,15 @@ const List = ({ list }) => {
                     <Typography style={{fontFamily: "'Quicksand', sans-serif"}}>{list.description}</Typography>
                 </CardContent>
                 <CardContent className={classes.center}>
-                    <Button style={{margin: "0.5rem"}} variant="outlined" color="primary" onClick={(e) => e.preventDefault()}>Show</Button>
+                    <Button style={{margin: "0.5rem"}} variant="outlined" color="primary" onClick={handleOpen}>Show</Button>
+                    <Modal
+                        open={open}
+                        onClose={handleClose}
+                        aria-labelledby="simple-modal-title"
+                        aria-describedby="simple-modal-description"
+                    >
+                        {notes}
+                    </Modal>
                     <Button style={{margin: "0.5rem"}} variant="outlined" color="primary" onClick={(e) => e.preventDefault()}>Delete</Button>
                 </CardContent> 
             </Card>
