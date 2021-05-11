@@ -10,7 +10,7 @@ import ListMessage from '../models/listMessage.js';
 
 export const getLists = async (req, res) => {
     const user = req.params.username;
-    console.log(req.params.username);
+
     try {
         const listMessages = await ListMessage.find({creator: user}, (err, results) => {
             if (err) {
@@ -32,7 +32,6 @@ export const getLists = async (req, res) => {
 
 export const createList = async (req, res) => {
     const list = req.body;
-    console.log(list);
     const newList = ListMessage(list);
     
     try {
@@ -41,5 +40,17 @@ export const createList = async (req, res) => {
         res.status(201).json(newList);
     } catch (error) {
         res.status(409).json({ message: error.message });
+    }
+}
+
+export const deleteList = async (req, res) => {
+    const listData = req.body;
+
+    try {
+        await ListMessage.deleteOne({ _id: listData.listID });
+        const lists = await ListMessage.find({ creator: listData.creator });
+        res.status(201).json(lists);
+    } catch (error) {
+        console.log(error.message);
     }
 }

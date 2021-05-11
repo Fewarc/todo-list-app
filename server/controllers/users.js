@@ -25,7 +25,7 @@ export const getUser = async (req, res) => {
 export const createUser = async (req, res) => {
     const user = req.body;
     const newUser = UserMessage(user);
-    console.log(newUser);
+
     try {
         await newUser.save();
 

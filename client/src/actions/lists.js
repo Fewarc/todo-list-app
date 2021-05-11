@@ -32,3 +32,12 @@ export const createList = (list) => async(dispatch) => {
         console.log(error.message);
     }
 }
+
+export const deleteList = (listData) => async(dispatch) => {
+    try {
+        const { data } = await api.deleteList(listData);
+        dispatch({ type: 'DELETE', payload: data});
+    } catch (error) {
+        console.log(error.message);
+    }
+}

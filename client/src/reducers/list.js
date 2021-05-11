@@ -17,6 +17,9 @@
              */
             return [ ...lists, action.payload ]; 
 
+        case 'DELETE':
+            return action.payload;
+
         default:
             return lists;
     }

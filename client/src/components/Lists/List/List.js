@@ -2,22 +2,32 @@ import { Button, Card, Modal, CardContent, Typography, Fade } from '@material-ui
 import React, { useState } from 'react';
 import Notes from '../../Notes/Notes.js';
 import { useSelector, useDispatch } from 'react-redux';
-import { createList } from '../../../actions/lists.js'
+import { getNotes, saveNotes } from '../../../actions/notes.js';
+import { deleteList } from '../../../actions/lists.js';
 
 import useStyles from './styles';
 
 
 const List = ({ list }) => {
-    const classes = useStyles();                // TODO : add popovers / popups
-
+    const classes = useStyles();
+    const allNotes = useSelector( (state) => state.notes);
+    const dispatch = useDispatch();
     const [open, setOpen] = useState(false);
 
     const handleOpen = () => {
         setOpen(true);
+        dispatch(getNotes(list._id));
     };
 
     const handleClose = () => {
         setOpen(false);
+        dispatch(saveNotes({notes: allNotes, listID: list._id}));
+    };
+
+    const handleDelete = (e) => {
+        e.preventDefault();
+        console.log({listID: list._id, creator: list.creator});
+        dispatch(deleteList({listID: list._id, creator: list.creator}));
     };
 
     const notes = (
@@ -44,7 +54,7 @@ const List = ({ list }) => {
                     >
                         {notes}
                     </Modal>
-                    <Button style={{margin: "0.5rem"}} variant="outlined" color="primary" onClick={(e) => e.preventDefault()}>Delete</Button>
+                    <Button style={{margin: "0.5rem"}} variant="outlined" color="primary" onClick={(e) => handleDelete(e)}>Delete</Button>
                 </CardContent> 
             </Card>
         </Fade>
