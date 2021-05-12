@@ -16,7 +16,7 @@
 ---
 
 ### Usage:
-After registration and logging in user is capable of creating to-do lists containing single remainder-like notes. Every note can be crossed out signaling that the task has been done. Notes can also be deleted in case you want them to vanish permanently. Similar to notes a single list can be deleted, deleting all the notes it contains.
+After registration and logging in user is capable of creating to-do lists containing single remainder-like notes. Every note can be crossed out signalling that the task has been done. Notes can also be deleted in case you want them to vanish permanently. Similar to notes a single list can be deleted, deleting all the notes it contains.
 
 ---
 ### App appearance:
