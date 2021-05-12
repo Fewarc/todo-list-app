@@ -39,6 +39,4 @@ Here's how it looks on PC ->
 
 ![todo2](https://user-images.githubusercontent.com/56931828/117970149-9ed8bc80-b328-11eb-897b-d2f768ff5896.png)
 
-<img src="https://user-images.githubusercontent.com/56931828/117970181-a730f780-b328-11eb-9e19-014db0f4d69d.png" width="450"/><img src="https://user-images.githubusercontent.com/56931828/117970199-aac47e80-b328-11eb-95af-9c2182e6f66c.png" width="450"/>
-
 
