@@ -13,7 +13,7 @@ export default makeStyles((theme) => ({
     },
     timeText: {
         fontFamily: "'Lobster', cursive",
-        fontSize: "8rem",
+        fontSize: "7.5vmax",
         color: "#3F51B5",
     },
     timeContent: {
