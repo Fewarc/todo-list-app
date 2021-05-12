@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { CardContent, Grid, TextField, Button, Typography, Fade } from '@material-ui/core';
 import useStyles from './styles.js';
 import { getUser } from '../../../../actions/logIn.js';
@@ -7,6 +7,8 @@ import { getUser } from '../../../../actions/logIn.js';
 const Log = () => {
     const classes = useStyles();
     const dispatch = useDispatch();
+    const logState = useSelector( (state) => state.isLoggedIn );
+
     const [user, setUser] = useState({
         username: '',
         password: ''
@@ -35,6 +37,8 @@ const Log = () => {
                             <TextField 
                                 className={classes.text}  
                                 spellCheck={false} 
+                                error={logState === null}
+                                helperText={(logState === null) ? 'Incorrect data' : ' '}
                                 name="username" 
                                 variant="outlined" 
                                 label="username" 
@@ -48,6 +52,8 @@ const Log = () => {
                             className={classes.text} 
                             type="password"
                             spellCheck={false} 
+                            error={logState === null}
+                            helperText={(logState === null) ? 'Incorrect data' : ' '}
                             name="password" 
                             variant="outlined" 
                             label="password" 
